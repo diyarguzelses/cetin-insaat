@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BoardOfDirectorController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\MachineController;
 use App\Http\Controllers\Admin\MenuController;
@@ -181,6 +182,22 @@ Route::prefix('FT23BA23DG12')->middleware('auth.admin')->name('admin.')->group(f
         Route::delete('/image/delete/{id}', [ProjectController::class, 'destroyImage'])->name('deleteImage');
         Route::post('order/update-order', [ProjectController::class, 'updateOrder'])->name('order-updateOrder');
     });
+
+    // 📌 YÖNETİM KURULU ÜYELERİ (Board of Directors)
+    Route::prefix('board-of-directors')->name('board_of_directors.')->group(function () {
+        Route::get('/', [BoardOfDirectorController::class, 'index'])->name('index'); // Listeleme
+        Route::get('/data', [BoardOfDirectorController::class, 'getData'])->name('data'); // DataTable için AJAX verisi
+
+        Route::get('/create', [BoardOfDirectorController::class, 'create'])->name('create'); // Yeni Üye Ekleme Formu
+        Route::post('/', [BoardOfDirectorController::class, 'store'])->name('store'); // Yeni Üye Kaydetme
+
+        Route::get('/{id}/edit', [BoardOfDirectorController::class, 'edit'])->name('edit'); // Düzenleme Formu
+        Route::put('/{id}', [BoardOfDirectorController::class, 'update'])->name('update'); // Güncelleme İşlemi
+
+        Route::delete('/{id}', [BoardOfDirectorController::class, 'destroy'])->name('destroy'); // Silme İşlemi
+        Route::post('/update-order', [BoardOfDirectorController::class, 'updateOrder'])->name('updateOrder'); // Sıralama Güncelleme
+    });
+
 
 
 });

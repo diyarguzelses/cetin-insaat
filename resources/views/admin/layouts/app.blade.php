@@ -186,6 +186,14 @@
                         <div data-i18n="Basic">Kariyer</div>
                     </a>
                 </li>
+                <!-- Yönetim Kurulu Yönetimi -->
+                <li class="menu-item {{ request()->routeIs('admin.board_of_directors.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.board_of_directors.index') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                        <div data-i18n="Basic">Yönetim Kurulu</div>
+                    </a>
+                </li>
+
             </ul>
         </aside>
         <!-- / Menu -->

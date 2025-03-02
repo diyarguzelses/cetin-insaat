@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BoardOfDirector;
 use App\Models\Category;
 use App\Models\Machine;
 use App\Models\News;
@@ -21,8 +22,9 @@ class HomePageController extends Controller
         $sectorCount = Sector::count();
         $machineCount = Machine::sum('quantity');
         $projeCategoryCount = Category::count();
+        $boardMembers = BoardOfDirector::orderBy('order')->get();
 
 
-        return view('front.index', compact('news','firstThreeSectors','nextFourSectors','lastnew','projectCount','sectorCount','machineCount','projeCategoryCount'));
+        return view('front.index', compact('news','firstThreeSectors','nextFourSectors','lastnew','projectCount','sectorCount','machineCount','projeCategoryCount','boardMembers'));
     }
 }
