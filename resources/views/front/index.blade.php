@@ -76,7 +76,8 @@
                             </li>
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
-                                <h4>{{ $sectorCount }} <br> Sektör Alanı</h4>
+                                <h4>180+ <br> Çalışan Sayısı</h4>
+{{--                                <h4>{{ $sectorCount }} <br> Sektör Alanı</h4>--}}
                             </li>
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
@@ -229,14 +230,31 @@
 
 
     <script>
-
-
         $(".custom-carousel").owlCarousel({
             autoWidth: true,
             loop: true
         });
-
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let trainersSection = document.getElementById("trainers-index");
+
+            function revealOnScroll() {
+                let scrollPosition = window.scrollY;
+                let triggerPoint = 100; // 200px aşağı kayınca göster
+
+                if (scrollPosition > triggerPoint) {
+                    trainersSection.classList.add("visible");
+
+                    window.removeEventListener("scroll", revealOnScroll);
+                }
+            }
+
+            window.addEventListener("scroll", revealOnScroll);
+        });
+    </script>
+
+
 
 
 
