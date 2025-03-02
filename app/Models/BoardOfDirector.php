@@ -11,5 +11,5 @@ class BoardOfDirector extends Model
 
     protected $table = 'table_board_of_directors';
 
-    protected $fillable = ['name', 'biography', 'image'];
+    protected $fillable = ['name', 'biography', 'image', 'order'];
 }

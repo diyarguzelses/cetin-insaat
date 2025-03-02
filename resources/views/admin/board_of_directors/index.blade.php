@@ -87,15 +87,16 @@
                         searchable: false,
                         render: function(data) {
                             return `
-                                <div class="d-flex align-items-center gap-2">
-                                    <a href="/admin/board_of_directors/${data.id}/edit" class="btn btn-primary btn-sm">
-                                        <i class="bi bi-pencil"></i> Düzenle
-                                    </a>
-                                    <button class="btn btn-danger btn-sm delete-director" data-id="${data.id}">
-                                        <i class="bi bi-trash"></i> Sil
-                                    </button>
-                                </div>
-                            `;
+            <div class="d-flex align-items-center gap-2">
+                <a href="{{ route('admin.board_of_directors.edit', ['id' => '__ID__']) }}"
+                   class="btn btn-primary btn-sm">
+                    <i class="bi bi-pencil"></i> Düzenle
+                </a>
+                <button class="btn btn-danger btn-sm delete-director" data-id="__ID__">
+                    <i class="bi bi-trash"></i> Sil
+                </button>
+            </div>
+        `.replace(/__ID__/g, data.id);
                         }
                     }
                 ]
@@ -181,7 +182,7 @@
                 }).then((result) => {
                     if(result.isConfirmed){
                         $.ajax({
-                            url: `/admin/board_of_directors/${directorId}`,
+                            url: "{{ route('admin.board_of_directors.destroy', ['id' => '__ID__']) }}".replace('__ID__', directorId),
                             method: 'DELETE',
                             data: { _token: '{{ csrf_token() }}' },
                             success: function(response){
