@@ -78,6 +78,25 @@
                     </div>
                 </div>
             </div>
+            <!-- Fullscreen Swiper Yapısı -->
+            <div id="fullscreenSlider" class="fullscreen-container">
+                <span class="close-btn">&times;</span>
+                <div class="swiper myFullscreenSwiper">
+                    <div class="swiper-wrapper">
+                        @foreach($news->images as $img)
+                            <div class="swiper-slide">
+                                <img src="{{ asset('uploads/news/'.$img->image) }}"
+                                     onerror="this.onerror=null; this.src='{{ asset('front/assets/img/default-img.png') }}';"
+                                     class="img-fluid" alt="">
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+
             <!-- Sağ Kolon: Haber İçeriği -->
             <div class="col-md-6 order-2 order-md-1 content aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <div class="d-flex align-items-center justify-content-between mb-3">
@@ -106,30 +125,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <style>
-        /* Modern navigation button tasarımı */
-        .swiper-button-next,
-        .swiper-button-prev {
-            background-color: rgba(0,0,0,0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-        }
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            font-size: 20px;
-        }
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-            background-color: rgba(0,0,0,0.7);
-        }
-    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function(){
@@ -147,4 +142,76 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let fullscreenSlider = document.getElementById("fullscreenSlider");
+            let closeBtn = document.querySelector(".close-btn");
+            let openFullscreenBtns = document.querySelectorAll(".swiper-slide img");
+            let swiperInstance = null;
+
+            let mainSwiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                }
+            });
+
+            openFullscreenBtns.forEach((img, index) => {
+                img.addEventListener("click", function () {
+                    fullscreenSlider.classList.add("active");
+
+                    if (swiperInstance) swiperInstance.destroy(true, true);
+
+                    swiperInstance = new Swiper(".myFullscreenSwiper", {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                        loop: true,
+                        effect: "fade",
+                        fadeEffect: { crossFade: true },
+                        autoplay: {
+                            delay: 4000,
+                            disableOnInteraction: false,
+                        },
+                        speed: 1000,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        initialSlide: index,
+                    });
+                });
+            });
+
+            function closeFullscreen() {
+                fullscreenSlider.classList.remove("active");
+                if (swiperInstance) swiperInstance.destroy(true, true);
+            }
+
+            closeBtn.addEventListener("click", closeFullscreen);
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeFullscreen();
+                }
+            });
+
+            fullscreenSlider.addEventListener("click", function (event) {
+                if (event.target === fullscreenSlider) {
+                    closeFullscreen();
+                }
+            });
+        });
+    </script>
+
 @endsection

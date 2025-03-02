@@ -1,6 +1,7 @@
 @extends('front.layout.app')
 
 @section('content')
+
     <div class="page-title aos-init aos-animate" data-aos="fade">
         <div class="heading">
             <div class="container">
@@ -33,8 +34,25 @@
 
     <section class="container">
         <div class="row">
+            <!-- Ana Swiper -->
             <div class="col-6">
                 <div class="swiper mySwiper d-flex align-items-center justify-content-start">
+                    <div class="swiper-wrapper">
+                        @foreach($projects->images as $img)
+                            <div class="swiper-slide">
+                                <img src="{{ asset('/'.$img->image_path) }}"
+                                     onerror="this.onerror=null; this.src='{{ asset('front/assets/img/default-img.png') }}';"
+                                     class="img-fluid open-fullscreen" data-index="{{ $loop->index }}" alt="">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fullscreen Swiper -->
+            <div id="fullscreenSlider" class="fullscreen-container">
+                <span class="close-btn">&times;</span>
+                <div class="swiper myFullscreenSwiper">
                     <div class="swiper-wrapper">
                         @foreach($projects->images as $img)
                             <div class="swiper-slide">
@@ -43,10 +61,16 @@
                                      class="img-fluid" alt="">
                             </div>
                         @endforeach
-
                     </div>
+                    <!-- Ok butonları ve pagination noktaları -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
+
+
+
             <div class="col-lg-6 order-2 order-lg-1 content aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                 <div class="d-flex align-items-center justify-content-between">
                     <h2 style="color: var(--accent-color)">{{ $projects->name }}</h2>
@@ -64,9 +88,79 @@
 
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let fullscreenSlider = document.getElementById("fullscreenSlider");
+            let closeBtn = document.querySelector(".close-btn");
+            let openFullscreenBtns = document.querySelectorAll(".open-fullscreen");
+            let swiperInstance = null;
 
+            let mainSwiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                }
+            });
 
+            openFullscreenBtns.forEach((img, index) => {
+                img.addEventListener("click", function () {
+                    fullscreenSlider.classList.add("active");
 
+                    if (swiperInstance) swiperInstance.destroy(true, true);
+
+                    swiperInstance = new Swiper(".myFullscreenSwiper", {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        loop: true,
+                        effect: "fade",
+                        fadeEffect: {
+                            crossFade: true
+                        },
+                        autoplay: {
+                            delay: 4000,
+                            disableOnInteraction: false,
+                        },
+                        speed: 1000,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        pagination: {
+                            el: ".swiper-pagination",
+                            clickable: true,
+                        },
+                        initialSlide: index,
+                    });
+                });
+            });
+
+            function closeFullscreen() {
+                fullscreenSlider.classList.remove("active");
+                if (swiperInstance) swiperInstance.destroy(true, true);
+            }
+
+            closeBtn.addEventListener("click", closeFullscreen);
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeFullscreen();
+                }
+            });
+
+            fullscreenSlider.addEventListener("click", function (event) {
+                if (event.target === fullscreenSlider) {
+                    closeFullscreen();
+                }
+            });
+        });
+    </script>
 
 
 

@@ -2397,3 +2397,79 @@ section,
 }
 
 
+
+.fullscreen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.fullscreen-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-container .swiper {
+    width: 90%;
+    height: 90%;
+}
+
+.fullscreen-container .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+
+
+     /* Modern navigation button tasarımı */
+ .swiper-button-next,
+ .swiper-button-prev {
+     background-color: rgba(0,0,0,0.5)!important;
+     width: 40px!important;
+     height: 40px!important;
+     border-radius: 50%!important;
+     top: 50%!important;
+     transform: translateY(-50%)!important;
+     display: flex!important;
+     align-items: center!important;
+     justify-content: center!important;
+     color: #fff!important;
+ }
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px!important;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(0,0,0,0.7)!important;
+}
