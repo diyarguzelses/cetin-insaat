@@ -66,7 +66,7 @@
                             @endforeach
                         @else
                             <div class="swiper-slide">
-                                <img src="{{ asset('front/assets/img/default-img.png') }}"
+                                <img src="{{ asset('uploads/news/'.$news->image) }}"
                                      alt="Varsayılan Resim"
                                      class="img-fluid"
                                      style="max-width: 100%; height: auto;">
