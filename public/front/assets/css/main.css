@@ -2473,3 +2473,68 @@ section,
 .swiper-button-prev:hover {
     background-color: rgba(0,0,0,0.7)!important;
 }
+
+
+/*------------- KURUCULAR SLİDER ------------<*/
+
+.custom-swiper-section .customSwiper {
+    width: 100%;
+    height: 480px;
+    margin-top: 20px;
+}
+.custom-swiper-section .customSwiper swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 400px;
+    color: #333;
+
+
+}
+.custom-swiper-section .customSwiper swiper-slide img{
+    height: 450px;
+    width: 100%;
+}
+.custom-swiper-section .modal{
+    --bs-modal-margin:0px!important;
+}
+.custom-swiper-section .modal-dialog-end {
+    position: fixed;
+    top: 0!important;
+    right: -100%;
+    width: 30%;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+.custom-swiper-section .modal.show .modal-dialog-end {
+    right: 0;
+    top: 0!important;
+}
+.custom-swiper-section .hover-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+.custom-swiper-section .image-container:hover .hover-button {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}

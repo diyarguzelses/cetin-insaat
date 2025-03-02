@@ -225,6 +225,88 @@
     </section>
 
 
+    <section class="custom-swiper-section container">
+        <div class="container pb-3">
+            <h2 style="color: var(--accent-color)">Kurucularımız</h2>
+            <hr class="hr">
+        </div>
+        <swiper-container class="customSwiper"
+                          pagination="true"
+                          pagination-clickable="true"
+                          navigation="false"
+                          slides-per-view="3"
+                          space-between="20"
+                          centered-slides="true"
+                          loop="false">
+            <swiper-slide>
+                <div class="image-container">
+                    <img src="https://ronesans.com/content/thumb/800x800/ipek-yeni-2915671b7fc2f3fa20.35448275.webp"
+                         class="open-modal"
+                         data-bs-toggle="modal"
+                         data-bs-target="#cvModal"
+                         data-name="İpek Yılmaz"
+                         data-cv="İpek Yılmaz, 10+ yıllık inşaat mühendisi deneyimi ile projeleri yönetmektedir."/>
+                    <div class="hover-button">+</div>
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="image-container">
+                    <img src="https://ronesans.com/content/thumb/800x800/2-kopya-0828463c9552398b710.79758895.webp"
+                         class="open-modal"
+                         data-bs-toggle="modal"
+                         data-bs-target="#cvModal"
+                         data-name="Ahmet Kaya"
+                         data-cv="Ahmet Kaya, yapı sektöründe 15 yıllık deneyime sahiptir ve birçok büyük projede çalışmıştır."/>
+                    <div class="hover-button">+</div>
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="image-container">
+                    <img src="https://ronesans.com/content/thumb/800x800/7-kopya-841263c955532873a2.17813679.webp"
+                         class="open-modal"
+                         data-bs-toggle="modal"
+                         data-bs-target="#cvModal"
+                         data-name="Elif Demir"
+                         data-cv="Elif Demir, yenilikçi çözümleriyle sektörde lider bir inşaat mühendisi olarak tanınmaktadır."/>
+                    <div class="hover-button">+</div>
+                </div>
+            </swiper-slide>
+            <swiper-slide>
+                <div class="image-container">
+                    <img src="https://ronesans.com/content/thumb/800x800/3-kopya-8280063c957d95a47e0.25893555.webp"
+                         class="open-modal"
+                         data-bs-toggle="modal"
+                         data-bs-target="#cvModal"
+                         data-name="Mehmet Öz"
+                         data-cv="Mehmet Öz, sürdürülebilir inşaat teknikleri konusunda uzmanlaşmış bir mühendistir."/>
+                    <div class="hover-button">+</div>
+                </div>
+            </swiper-slide>
+        </swiper-container>
+        <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-end">
+                <div class="modal-content" style="border: none">
+                    <div class="modal-header mt-4" style="border: none">
+                        <h5 class="modal-title" id="cvName">Kişi İsmi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="cvText">Burada kişinin CV bilgileri yer alacaktır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -241,7 +323,7 @@
 
             function revealOnScroll() {
                 let scrollPosition = window.scrollY;
-                let triggerPoint = 100; // 200px aşağı kayınca göster
+                let triggerPoint = 100;
 
                 if (scrollPosition > triggerPoint) {
                     trainersSection.classList.add("visible");
@@ -252,6 +334,41 @@
 
             window.addEventListener("scroll", revealOnScroll);
         });
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let cvModal = document.getElementById("cvModal");
+            let modalTitle = document.getElementById("cvName");
+            let modalBody = document.getElementById("cvText");
+
+            cvModal.addEventListener("show.bs.modal", function (event) {
+                let button = event.relatedTarget;
+                let name = button.getAttribute("data-name");
+                let cv = button.getAttribute("data-cv");
+
+                modalTitle.textContent = name;
+                modalBody.textContent = cv;
+            });
+
+            document.querySelectorAll(".hover-button").forEach(button => {
+                button.addEventListener("click", function () {
+                    let parent = this.closest(".image-container");
+                    let img = parent.querySelector("img");
+
+                    let name = img.getAttribute("data-name");
+                    let cv = img.getAttribute("data-cv");
+
+                    modalTitle.textContent = name;
+                    modalBody.textContent = cv;
+
+                    let modal = new bootstrap.Modal(cvModal);
+                    modal.show();
+                });
+            });
+        });
+
     </script>
 
 
