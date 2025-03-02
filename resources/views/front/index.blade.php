@@ -5,19 +5,19 @@
 
     <section id="hero" class="hero section dark-background">
 
-        <img src="{{asset('front/assets/img/bg_1.png')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
-        {{--        <video autoplay muted loop playsinline class="video-background">--}}
-        {{--            <source src="{{ asset('front/assets/video/video.mp4.crdownload') }}" type="video/mp4">--}}
-        {{--            Tarayıcınız video etiketini desteklemiyor.--}}
-        {{--        </video>--}}
+                <img src="{{asset('front/assets/img/bg_1.png')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
+{{--        <video autoplay muted loop playsinline class="video-background">--}}
+{{--            <source src="{{ asset('front/assets/video/test.mp4') }}" type="video/mp4">--}}
+{{--            Tarayıcınız video etiketini desteklemiyor.--}}
+{{--        </video>--}}
 
-        <div class="container">
-            <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen
-                Başarılar</h2>
-{{--            <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
-{{--                <a href="courses.html" class="btn-get-started">Devamını Gör</a>--}}
-{{--            </div>--}}
-        </div>
+                <div class="container">
+                    <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen
+                        Başarılar</h2>
+{{--                    <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
+{{--                        <a href="courses.html" class="btn-get-started">Devamını Gör</a>--}}
+{{--                    </div>--}}
+                </div>
 
     </section>
     <div id="trainers-index" class="trainers-index">
@@ -76,8 +76,8 @@
                             </li>
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
-                                <h4>180+ <br> Çalışan Sayısı</h4>
-{{--                                <h4>{{ $sectorCount }} <br> Sektör Alanı</h4>--}}
+                                <h4>1800+ <br> Çalışan Sayısı</h4>
+                                {{--                                <h4>{{ $sectorCount }} <br> Sektör Alanı</h4>--}}
                             </li>
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
@@ -317,11 +317,14 @@
 
             cvModal.addEventListener("show.bs.modal", function (event) {
                 let button = event.relatedTarget;
-                let name = button.getAttribute("data-name");
-                let cv = button.getAttribute("data-cv");
 
-                modalTitle.textContent = name;
-                modalBody.textContent = cv;
+                if (button) {
+                    let name = button.getAttribute("data-name") || "Bilinmeyen";
+                    let cv = button.getAttribute("data-cv") || "Bilgi bulunamadı.";
+
+                    modalTitle.textContent = name;
+                    modalBody.innerHTML = cv.replace(/\n/g, "<br>");
+                }
             });
 
             document.querySelectorAll(".hover-button").forEach(button => {
@@ -329,14 +332,16 @@
                     let parent = this.closest(".image-container");
                     let img = parent.querySelector("img");
 
-                    let name = img.getAttribute("data-name");
-                    let cv = img.getAttribute("data-cv");
+                    if (img) {
+                        let name = img.getAttribute("data-name") || "Bilinmeyen";
+                        let cv = img.getAttribute("data-cv") || "Bilgi bulunamadı.";
 
-                    modalTitle.textContent = name;
-                    modalBody.textContent = cv;
+                        modalTitle.textContent = name;
+                        modalBody.innerHTML = cv.replace(/\n/g, "<br>");
 
-                    let modal = new bootstrap.Modal(cvModal);
-                    modal.show();
+                        let modal = new bootstrap.Modal(cvModal);
+                        modal.show();
+                    }
                 });
             });
         });
@@ -348,4 +353,3 @@
 
 
 @endsection
-
