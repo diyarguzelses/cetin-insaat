@@ -178,6 +178,7 @@
                 <h4>İletişim</h4>
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-location-dot"></i>Kızılırmak Mah. <br>Dumlupınar Bulvarı Next Level A Blok -3/39 ANKARA</a></li>
+                    <li><i class="fa-solid fa-location-dot"></i>İcadiye Mah. <br> No:27/403 ELAZIĞ</li>
                     <li><i class="fa-solid fa-phone"></i>+(90) 312 478 39 13</li>
                     <li><i class="fa-solid fa-envelope"></i>cetin@cetininsaat.info</li>
                 </ul>

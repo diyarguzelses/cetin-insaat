@@ -72,7 +72,7 @@
                                 <div class="loading alert alert-warning text-center" style="display:none;">Gönderiliyor...</div>
                                 <div class="sent-message alert alert-success text-center" style="display:none;"></div>
                                 <div class="error-message alert alert-danger text-center" style="display:none;"></div>
-                                <button type="button" id="sendMailButton" onclick="sendFeedback()" class="btn btn-primary">Gönder</button>
+                                <button type="button" id="sendMailButton" onclick="sendFeedback()" class="btn" style="background: var(--accent-color);color: white">Gönder</button>
                             </div>
                         </div>
                     </form>

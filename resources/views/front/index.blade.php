@@ -6,6 +6,10 @@
     <section id="hero" class="hero section dark-background">
 
         <img src="{{asset('front/assets/img/bg_1.png')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
+        {{--        <video autoplay muted loop playsinline class="video-background">--}}
+        {{--            <source src="{{ asset('front/assets/video/video.mp4.crdownload') }}" type="video/mp4">--}}
+        {{--            Tarayıcınız video etiketini desteklemiyor.--}}
+        {{--        </video>--}}
 
         <div class="container">
             <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen
