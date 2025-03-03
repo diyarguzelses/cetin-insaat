@@ -5,19 +5,19 @@
 
     <section id="hero" class="hero section dark-background">
 
-        {{--        <img src="{{asset('front/assets/img/bg_1.png')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">--}}
-        <video autoplay muted loop playsinline class="video-background">
-            <source src="{{ asset('front/assets/video/test.mp4') }}" type="video/mp4">
-            Tarayıcınız video etiketini desteklemiyor.
-        </video>
+                <img src="{{asset('front/assets/img/bg_1.png')}}" alt="" data-aos="fade-in" class="aos-init aos-animate">
+{{--        <video autoplay muted loop playsinline class="video-background">--}}
+{{--            <source src="{{ asset('front/assets/video/test.mp4') }}" type="video/mp4">--}}
+{{--            Tarayıcınız video etiketini desteklemiyor.--}}
+{{--        </video>--}}
 
-        {{--        <div class="container">--}}
-        {{--            <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen--}}
-        {{--                Başarılar</h2>--}}
-        {{--            <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
-        {{--                <a href="courses.html" class="btn-get-started">Devamını Gör</a>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
+                <div class="container">
+                    <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen
+                        Başarılar</h2>
+{{--                    <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
+{{--                        <a href="courses.html" class="btn-get-started">Devamını Gör</a>--}}
+{{--                    </div>--}}
+                </div>
 
     </section>
     <div id="trainers-index" class="trainers-index">
