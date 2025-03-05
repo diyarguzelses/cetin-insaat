@@ -26,7 +26,7 @@
                 <i class="bi bi-plus-circle"></i> Yeni Haber Ekle
             </a>
         </div>
-        <div class="card-body mt-5">
+        <div class="card-body mt-3">
             <table id="newsTable" class="table table-bordered">
                 <thead>
                 <tr>

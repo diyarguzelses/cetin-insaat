@@ -20,7 +20,7 @@
                     <i class="bi bi-plus-circle"></i> Yeni Sayfa Ekle
                 </a>
             </div>
-            <div class="card-body">
+            <div class="card-body mt-3">
                 <table id="pagesTable" class="table table-bordered">
                     <thead>
                     <tr>

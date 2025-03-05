@@ -25,7 +25,7 @@
         </div>
 
         <!-- Kart İçerik -->
-        <div class="card-body py-3">
+        <div class="card-body mt-3">
             <div class="table-responsive">
                 <table id="categoriesTable" class="table table-striped table-bordered">
                     <thead class="fw-bold text-muted bg-light"><br>

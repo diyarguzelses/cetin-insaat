@@ -23,7 +23,7 @@
                 </a>
             </div>
             <!-- Kart İçerik -->
-            <div class="card-body m-2">
+            <div class="card-body mt-3">
                 <table id="sectorsTable" class="table table-bordered mt-3">
                     <thead>
                     <tr>

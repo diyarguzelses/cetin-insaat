@@ -19,7 +19,7 @@
                 <i class="bi bi-plus-circle"></i> Yeni Makine Ekle
             </button>
         </div>
-        <div class="card-body">
+        <div class="card-body mt-3">
             <table id="machinesTable" class="table table-bordered">
                 <thead>
                 <tr>
@@ -86,10 +86,10 @@
                     url: "{{ asset('assets/datatables/turkish.json') }}"
                 },
                 columns: [
-                    { data: 'order', name: 'order' },
-                    { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
-                    { data: 'quantity', name: 'quantity' },
+                    { data: 'order', name: 'order' ,orderable: true },
+                    { data: 'id', name: 'id' ,orderable: true },
+                    { data: 'name', name: 'name',orderable: true  },
+                    { data: 'quantity', name: 'quantity',orderable: true  },
                     { data: 'image', name: 'image', orderable: false, searchable: false },
                     { data: 'actions', name: 'actions', orderable: false, searchable: false }
                 ]
