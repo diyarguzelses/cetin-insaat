@@ -1218,7 +1218,7 @@ section,
   font-weight: 700;
   font-size: 18px;
   /*color: color-mix(in srgb, var(--default-color), transparent 20%);*/
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
 }
 .courses .course-content .price2 {
     margin: 0;
