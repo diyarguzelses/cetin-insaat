@@ -2384,7 +2384,7 @@ section,
 
 .swiper-slide img {
     display: block;
-    width: 100%;
+    width: 95%;
     max-height: 300px;
     object-fit: contain;
 }
