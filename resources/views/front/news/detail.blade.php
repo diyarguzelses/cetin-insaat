@@ -1,12 +1,5 @@
     @extends('front.layout.app')
-    <style>
-        #fullscreenSlider .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-    </style>
     @section('content')
         <div class="page-title aos-init aos-animate" data-aos="fade">
             <div class="heading">
