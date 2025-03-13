@@ -1,5 +1,28 @@
     @extends('front.layout.app')
+    <style>
+        #fullscreenSlider .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #fullscreenSlider {
+            display: none;
+        }
 
+        #fullscreenSlider.active {
+            display: block;
+            /* Eğer overlay şeklinde görünmesini isterseniz ek stil verebilirsiniz */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+        }
+
+
+    </style>
     @section('content')
         <div class="page-title aos-init aos-animate" data-aos="fade">
             <div class="heading">
