@@ -30,6 +30,11 @@
             align-items: center;   /* Dikey ortalama */
             justify-content: center; /* Yatay ortalama */
         }
+        #fullscreenSlider .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         .fullscreen-container.active {
             display: flex;
         }
