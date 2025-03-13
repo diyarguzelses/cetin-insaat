@@ -17,7 +17,7 @@
             object-fit: cover;  /* Resmin oranını koruyarak sığdırır */
             cursor: pointer;
         }
-        /* Fullscreen slider için basit stil */
+        /* Fullscreen slider için basit stil (ortalanmış) */
         .fullscreen-container {
             position: fixed;
             top: 0;
@@ -25,11 +25,13 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.8);
-            display: none;
             z-index: 9999;
+            display: none;
+            align-items: center;   /* Dikey ortalama */
+            justify-content: center; /* Yatay ortalama */
         }
         .fullscreen-container.active {
-            display: block;
+            display: flex;
         }
         .fullscreen-container .close-btn {
             position: absolute;
