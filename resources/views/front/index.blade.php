@@ -76,9 +76,10 @@
                             </li>
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
-                                <h4>1800+ <br> Çalışan Sayısı</h4>
-                                {{--                                <h4>{{ $sectorCount }} <br> Sektör Alanı</h4>--}}
+                                <h4>{{ $personnelCount }}+ <br> Çalışan Sayısı</h4>
+                                {{-- <h4>{{ $sectorCount }} <br> Sektör Alanı</h4> --}}
                             </li>
+
                             <li class="col-lg-6">
                                 <i class="fa-solid fa-circle fa-sm"></i>
                                 <h4>{{ $machineCount }}+ <br> Makine Sayısı</h4>
