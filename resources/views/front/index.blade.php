@@ -13,13 +13,13 @@
             Tarayıcınız video etiketini desteklemiyor.--}}
         </video>
 
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen
-                        Başarılar</h2>
+{{--                <div class="container">--}}
+{{--                    <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen--}}
+{{--                        Başarılar</h2>--}}
 {{--                    <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
 {{--                        <a href="courses.html" class="btn-get-started">Devamını Gör</a>--}}
 {{--                    </div>--}}
-                </div>
+{{--                </div>--}}
 
     </section>
     <div id="trainers-index" class="trainers-index">
