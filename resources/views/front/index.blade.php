@@ -470,6 +470,19 @@
                 font-size: 1em;
             }
         }
+        /* hero bölümündeki dark‑background overlay’ini kaldır */
+        #hero.dark-background::before,
+        #hero.dark-background::after {
+            display: none !important;
+            content: none !important;
+            background: transparent !important;
+        }
+
+        /* Veya direkt arka plan rengini sıfırla */
+        #hero.dark-background {
+            background: transparent !important;
+        }
+
     </style>
 
 @endsection
