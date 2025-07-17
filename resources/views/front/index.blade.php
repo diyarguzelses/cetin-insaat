@@ -5,18 +5,19 @@
 
     <section id="hero" class="hero section dark-background">
 
+        {{-- Video elementi. Otomatik ve sessiz başlar. Ses kontrolü için JavaScript ile yönetilir. --}}
         <video id="heroVideo" autoplay loop playsinline class="video-background">
             <source src="{{ asset('videos/deneme2.mp4') }}" type="video/mp4">
             Tarayıcınız video etiketini desteklemiyor.
         </video>
 
         {{-- Başlık ve içeriğin video üzerine sağ üstte konumlandırılması --}}
-     {{--   <div class="video-hero-content-top-right">
-            <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen Başarılar</h2>
-            <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                --}}{{-- Buraya ek bir buton veya link ekleyebilirsiniz --}}{{--
-            </div>
-        </div>--}}
+{{--        <div class="video-hero-content-top-right">--}}
+{{--            <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">Geçmişten Günümüze<br>Yükselen Başarılar</h2>--}}
+{{--            <div class="d-flex mt-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">--}}
+{{--                --}}{{-- Buraya ek bir buton veya link ekleyebilirsiniz --}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         {{-- Ses kontrol düğmesinin video üzerinde sağ üstte konumlandırılması --}}
         <div class="volume-control-container-top-right">
@@ -353,6 +354,18 @@
     <style>
         #hero {
             position: relative;
+            overflow: hidden; /* Bu, videonun kesilmemesi için önemli olabilir */
+            height: 100vh; /* Ekran yüksekliği kadar yer kaplasın */
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Video da tam alanı kaplasın */
+            object-fit: cover; /* En boy oranını koruyarak alanı doldurur, bu kesilme sorununu çözer */
+            z-index: 1; /* Video en altta olsun */
         }
 
         .video-hero-content-top-right {
