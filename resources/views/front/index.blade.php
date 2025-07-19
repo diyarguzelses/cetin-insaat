@@ -34,7 +34,7 @@
             <div class="row member_row">
 
                 @foreach($firstThreeSectors as $sector)
-                    <div class="col-lg-3 col-md-6 d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-6 d-flex justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
                             <img src="{{asset('uploads/sectors/'.$sector->image)}}" onerror="this.onerror=null; this.src='{{asset('front/assets/img/default-img.png')}}';" class="img-fluid" alt="">
                             <div class="member-content">
@@ -264,20 +264,24 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let trainersSection = document.getElementById("trainers-index");
+            let scrollTimeout;
 
-            function revealOnScroll() {
-                let scrollPosition = window.scrollY;
-                let triggerPoint = 100;
+            function showSection() {
+                trainersSection.classList.add("visible");
 
-                if (scrollPosition > triggerPoint) {
-                    trainersSection.classList.add("visible");
-                    window.removeEventListener("scroll", revealOnScroll);
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
                 }
+
+                scrollTimeout = setTimeout(() => {
+                    trainersSection.classList.remove("visible");
+                }, 5000);
             }
 
-            window.addEventListener("scroll", revealOnScroll);
+            window.addEventListener("scroll", showSection);
         });
     </script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -355,7 +359,7 @@
         #hero {
             position: relative;
             overflow: hidden; /* Bu, videonun kesilmemesi için önemli olabilir */
-            height: 100vh; /* Ekran yüksekliği kadar yer kaplasın */
+            /*height: 100vh; !* Ekran yüksekliği kadar yer kaplasın *!*/
         }
 
         .video-background {
@@ -393,7 +397,7 @@
             position: absolute;
             top: 20px; /* Başlıkla aynı hizaya */
             right: 20px; /* En sağa */
-            z-index: 1001;
+            z-index: 99;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 5px;
             padding: 5px;

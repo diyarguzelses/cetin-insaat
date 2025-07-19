@@ -57,6 +57,14 @@
     .header .logo img {
         width: 180px;
     }
+    .trainers-index .member_container{
+        margin-top: -15px;
+
+    }
+    .hero {
+        min-height: 30vh;
+    }
+
 }
 
 @media (max-width: 500px) {
