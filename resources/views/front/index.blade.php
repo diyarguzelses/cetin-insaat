@@ -358,18 +358,18 @@
     <style>
         #hero {
             position: relative;
-            overflow: hidden;
-            height: 120vh; !important;
+            overflow: hidden; /* Bu, videonun kesilmemesi için önemli olabilir */
+            /*height: 100vh; !* Ekran yüksekliği kadar yer kaplasın *!*/
         }
 
         .video-background {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
-            height: 100%; /* Video da tam alanı kaplasın */
-            object-fit: cover; /* En boy oranını koruyarak alanı doldurur, bu kesilme sorununu çözer */
-            z-index: 1; /* Video en altta olsun */
+            height: auto;
+            min-height: 100%;
+            object-fit: contain;
+            background-color: black;
         }
 
         .video-hero-content-top-right {
@@ -486,6 +486,7 @@
         #hero.dark-background {
             background: transparent !important;
         }
+
 
     </style>
 
