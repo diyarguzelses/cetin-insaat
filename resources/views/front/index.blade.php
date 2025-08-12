@@ -359,7 +359,7 @@
         #hero {
             position: relative;
             overflow: hidden; /* Bu, videonun kesilmemesi için önemli olabilir */
-            /*height: 100vh; !* Ekran yüksekliği kadar yer kaplasın *!*/
+            height: 107vh;
         }
 
         .video-background {
@@ -369,7 +369,6 @@
             height: auto;
             min-height: 100%;
             object-fit: contain;
-            background-color: black;
         }
 
         .video-hero-content-top-right {
