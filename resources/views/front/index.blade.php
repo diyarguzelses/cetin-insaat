@@ -358,8 +358,8 @@
     <style>
         #hero {
             position: relative;
-            overflow: hidden; /* Bu, videonun kesilmemesi için önemli olabilir */
-            /*height: 100vh; !* Ekran yüksekliği kadar yer kaplasın *!*/
+            overflow: hidden;
+            height: 120vh; !important;
         }
 
         .video-background {
