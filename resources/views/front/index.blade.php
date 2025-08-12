@@ -369,7 +369,10 @@
             height: auto;
             min-height: 100%;
             object-fit: contain;
+            object-position: center 5% !important;
         }
+
+
 
         .video-hero-content-top-right {
             position: absolute;
