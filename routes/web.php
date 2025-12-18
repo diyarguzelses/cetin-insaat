@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\NewsPageController;
 use App\Http\Controllers\Frontend\ProjectPageController;
 use App\Http\Controllers\Projects\ProjectController;
 use App\Http\Controllers\Settings\SettingsController;
+use App\Http\Controllers\SystemMapController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -51,8 +52,8 @@ use Illuminate\Support\Str;
 Route::get('/communication', [CommunicationController::class, 'index'])->name('communication.index');
 Route::post('/sendMessage', [CommunicationController::class, 'sendMessage'])->name('communication.sendMessage');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
-Route::post('/login', [AuthController::class, 'login'])->middleware('guest');
+Route::get('/ft23ba23dg12/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/ft23ba23dg12/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth.admin');
 
 
@@ -223,6 +224,9 @@ Route::get('/news/detail/{slug}', [NewsPageController::class, 'detail'])->name('
 
 // Career Route (Career)
 Route::get('/career', [App\Http\Controllers\Frontend\CareerController::class, 'index'])->name('career.index');
+
+// System Map Route
+Route::get('/system-map', [SystemMapController::class, 'index'])->name('system-map');
 
 // DefaultPage Route (En Sona Alındı ve Çakışmalar Önendi)
 Route::get('/{slug}', [DefaultPageController::class, 'handleMenu'])->name('menu.handle');

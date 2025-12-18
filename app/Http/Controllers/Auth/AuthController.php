@@ -37,7 +37,7 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/ft23ba23dg12/login');
     }
 
 }
